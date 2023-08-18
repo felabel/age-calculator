@@ -1,0 +1,143 @@
+:root{
+    --primary: #864cff;
+    --black: #151515;
+    --grey: #dddddd;
+    --bgColor: #f0f0f0;
+    --white: #fff;
+    --text: #828282;
+}
+
+@font-face {
+    font-family: poppinsBold;
+    src: url("../assets/fonts/Poppins-Bold.ttf");
+}
+@font-face {
+    font-family: poppinsBoldItalic;
+    src: url("../assets/fonts/Poppins-BoldItalic.ttf");
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+    background-color: var(--bgColor);
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+    height: 100vh;
+
+}
+.form_wrapper{
+    width: 750px;
+    height: auto;
+    background-color: var(--white);
+    border-radius: 25px;
+    border-bottom-right-radius: 35%;
+    align-self: center;
+    padding: 60px;
+    /* margin: auto; */
+}
+
+.input_wrapper{
+    display: flex;
+}
+p{
+    padding: 0;
+    margin: 0;
+    color: var(--text);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: poppinsBold;
+    /* line-height: 62px; */
+}
+input{
+    width: 120px;
+    padding: 15px 20px;
+    margin-right: 20px;
+    border: 0.5px solid var(--grey);
+    outline: none;
+    border-radius: 8px;
+    font-size: 30px;
+    font-weight: bold;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+.btn_wrapper_mobile{
+    display: none;
+}
+.btn_wrapper{
+    display: flex;
+    width: 100%;
+    /* background: blue; */
+    /* justify-content: center; */
+    align-items: center;
+}
+.line{
+    width: 85%;
+    height: 1px;
+    background: var(--grey);
+}
+button{
+    outline: none;
+    border-radius: 50%;
+    appearance: none;
+    padding: 25px;
+    border: 0;
+    background-color: var(--primary);
+}
+button:active{
+    background: var(--black);
+}
+.years_output{
+    font-family: poppinsBoldItalic;
+    font-size: 100px;
+    text-transform: lowercase;
+    color: var(--black);
+    /* background: lime; */
+    margin-bottom: -30px;
+}
+.value{
+    color: var(--primary) !important;
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .form_wrapper{
+        width: 85%;
+        margin: auto;
+        padding: 40px 20px;
+    }
+    input{
+        width: 55px;
+        padding: 10px 15px;
+        margin-right: 15px;
+        font-size: 24px;
+    }
+    .years_output{
+        font-size: 65px;
+    }
+    #years{
+        width: 70px;
+    }
+    .btn_wrapper{
+        display: none;
+    }
+    .btn_wrapper_mobile{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin: 30px 0;
+        /* background: lime; */
+    }
+    button{
+        padding: 10px;
+    }
+}

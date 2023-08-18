@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's My Age!</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="form_wrapper">
+            <form id="dateForm">
+                <div class="input_wrapper">
+                    <div class="day_wrapper">
+                        <p>Day</p>
+                        <input type="number" id="days" min="1" max="31" maxlength="2" required>
+                    </div>
+                    <div class="day_wrapper">
+                        <p>Month</p>
+                        <input type="number" id="months" min="1" max="12" maxlength="2" required>
+                    </div>
+                    <div class="day_wrapper">
+                        <p>Year</p>
+                        <input type="number" id="years" min="1" max="9999" maxlength="4" required>
+                    </div>
+
+                </div>
+                <div class="btn_wrapper">
+                    <div class="line"></div>
+                    <button type="button" id="submitBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
+                            <g fill="none" stroke="#FFF" stroke-width="2">
+                                <path
+                                    d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
+                            </g>
+                        </svg>
+
+                    </button>
+                </div>
+                <div class="btn_wrapper_mobile">
+                    <div class="line"></div>
+                    <button type="button" id="submitBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
+                            <g fill="none" stroke="#FFF" stroke-width="2">
+                                <path
+                                    d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
+                            </g>
+                        </svg>
+
+                    </button>
+                    <div class="line"></div>
+
+                </div>
+            </form>
+            <div class="output">
+                <div class="years_output">
+                    <span class="value">38</span><span>Years</span>
+                </div>
+                <div class="years_output">
+                    <span class="value">3</span><span>Months</span>
+                </div>
+                <div class="years_output">
+                    <span class="value">--</span><span>Days</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script async src="js/script.js"></script>
+</body>
+
+</html>
