@@ -51,27 +51,7 @@ if (isFieldEmpty(yearsInput)) {
     return;
 }
 
-    // if (!days ||isNaN(days) || days.length > 2 || days < 1 || days > 31) {
-    //     daysError.textContent = "Must be a valid day.";
-    //     daysInput.style.borderColor = "red"; 
-    //     return;
-    // }
-
-   
-    // if (!months || isNaN(months) || months.length > 2 || months < 1 || months > 12) {
-    //     monthsError.textContent = "Must be a valid month.";
-    //     monthsInput.style.borderColor = "red"; 
-
-    //     return;
-    // }
-
-    // if (!years || isNaN(years) || years > (new Date().getFullYear())) {
-    //     yearsError.textContent = "Must be in the past.";
-    //     yearsInput.style.borderColor = "red"; 
-
-    //     return;
-    // }
-
+ 
     const lastDayOfMonth = new Date(years, months, 0).getDate();
     if (days > lastDayOfMonth) {
         daysError.textContent = "Must be a valid day.";
@@ -148,4 +128,13 @@ function saveAgeToLocalStorage(age) {
 function loadAgeFromLocalStorage() {
     const storedAge = localStorage.getItem("calculatedAge");
     return storedAge ? JSON.parse(storedAge) : null;
+}
+
+// clear local storage
+function clearLocalStorage() {
+    localStorage.removeItem("calculatedAge");
+    // set the displayed data to empty
+    ageYears.textContent = '--';
+    ageMonths.textContent = '--';
+    ageDays.textContent = '--';
 }
