@@ -3,11 +3,36 @@ const daysInput = document.getElementById("day");
 const monthsInput = document.getElementById("month");
 const yearsInput = document.getElementById("year");
 
+// Limit the input field to 2 characters
+function limitInputLength(inputElement, maxLength) {
+    if (inputElement.value.length > maxLength) {
+        inputElement.value = inputElement.value.slice(0, maxLength);
+    }
+}
+
+daysInput.addEventListener("input", limitInputLength.bind(null, daysInput, 2));
+monthsInput.addEventListener("input", limitInputLength.bind(null, monthsInput, 2));
+yearsInput.addEventListener("input", limitInputLength.bind(null, yearsInput, 4));
+
+// add 0 to the start of the number if only one one character
+daysInput.addEventListener("blur", addLeadingZero);
+monthsInput.addEventListener("blur", addLeadingZero);
+
+function addLeadingZero(event) {
+    const inputElement = event.target;
+    if (inputElement.value.length === 1 && inputElement.value > 0 ) {
+        inputElement.value = inputElement.value.padStart(2, '0');
+    }
+}
+
+// get the form labels so you can change them on error
 const dayText = document.getElementById("dayText");
 const monthText = document.getElementById("monthText");
 const yearText = document.getElementById("yearText");
 
 
+
+// submit for function
 function handleOnSubmit() {
     const days = daysInput.value.padStart(2, '0');
     const months = monthsInput.value.padStart(2, '0');

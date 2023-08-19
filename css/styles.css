@@ -129,7 +129,7 @@ button:active{
         font-size: 65px;
     }
     #years{
-        width: 80px;
+        width: 80px !important;
     }
     .btn_wrapper{
         display: none;
