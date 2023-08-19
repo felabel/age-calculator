@@ -17,7 +17,6 @@ yearsInput.addEventListener("input", limitInputLength.bind(null, yearsInput, 4))
 // add 0 to the start of the number if only one one character
 daysInput.addEventListener("blur", addLeadingZero);
 monthsInput.addEventListener("blur", addLeadingZero);
-
 function addLeadingZero(event) {
     const inputElement = event.target;
     if (inputElement.value.length === 1 && inputElement.value > 0 ) {
@@ -29,8 +28,6 @@ function addLeadingZero(event) {
 const dayText = document.getElementById("dayText");
 const monthText = document.getElementById("monthText");
 const yearText = document.getElementById("yearText");
-
-
 
 // submit for function
 function handleOnSubmit() {
@@ -145,7 +142,7 @@ function calculateAge(birthDate) {
 
     return { years: yearsDiff, months: monthsDiff, days: daysDiff };
 }
-
+// store in the local storage
 const storedAge = loadAgeFromLocalStorage();
     if (storedAge) {
         updateAgeDisplay(storedAge);
@@ -170,8 +167,7 @@ function updateAgeDisplay(age) {
 function saveAgeToLocalStorage(age) {
     localStorage.setItem("calculatedAge", JSON.stringify(age));
 }
-
-
+// display data from storage
 function loadAgeFromLocalStorage() {
     const storedAge = localStorage.getItem("calculatedAge");
     return storedAge ? JSON.parse(storedAge) : null;
