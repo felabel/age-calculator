@@ -96,7 +96,11 @@ if (isFieldEmpty(yearsInput)) {
     daysInput.value = "";
     monthsInput.value = "";
     yearsInput.value = "";
-    monthsInput.style.borderColor = "green";
+   
+
+    daysInput.style.borderColor = "";
+    monthsInput.style.borderColor = "";
+    yearsInput.style.borderColor = "";
 }
 
 // calculate the age from the date provided
