@@ -16,21 +16,70 @@ function handleOnSubmit() {
     monthsError.textContent = "";
     yearsError.textContent = "";
 
+    const emptyFields = [];
+
+    // if (!days) {
+    //     daysError.textContent = "Field is required.";
+    //     daysInput.style.borderColor = "red";
+    //     emptyFields.push(daysInput);
+    // }
+    if (isFieldEmpty(daysInput)) {
+        monthsError.textContent = "required field dyas.";
+        monthsInput.style.borderColor = "red"; 
+    }
+
+    // if (!months) {
+    //     monthsError.textContent = "Field is required.";
+    //     monthsInput.style.borderColor = "red";
+    //     emptyFields.push(monthsInput);
+    // }
+
+    // if (!years) {
+    //     yearsError.textContent = "Field is required.";
+    //     yearsInput.style.borderColor = "red";
+    //     emptyFields.push(yearsInput);
+    // }
+    if (isFieldEmpty(yearsInput)) {
+        monthsError.textContent = "required field.";
+        monthsInput.style.borderColor = "red"; 
+    }
+
+    // if (emptyFields.length > 0) {
+    //     return;
+    // }
+
+    function isFieldEmpty(inputElement) {
+        return inputElement.value.trim() === "";
+    }
+    
+    // Usage example
+    if (isFieldEmpty(monthsInput)) {
+        monthsError.textContent = "requiredd field.";
+        monthsInput.style.borderColor = "red"; 
+    }
+
+  // Clear errors and borders after successful submission
+  emptyFields.forEach(input => {
+    const errorElement = input.id + "Error";
+    document.getElementById(errorElement).textContent = "";
+    input.style.borderColor = "";
+});
     // check to ensure that the input doesn't contain more days than required
-    if (!days || isNaN(days) || days.length > 2 || days < 1 || days > 31) {
+    if (isNaN(days) || days.length > 2 || days < 1 || days > 31) {
         daysError.textContent = "Must be a valid day.";
         daysInput.style.borderColor = "red"; 
         return;
     }
 
-    if (!months || isNaN(months) || months.length > 2 || months < 1 || months > 12) {
+   
+    if (isNaN(months) || months.length > 2 || months < 1 || months > 12) {
         monthsError.textContent = "Must be a valid month.";
         monthsInput.style.borderColor = "red"; 
 
         return;
     }
 
-    if (!years || isNaN(years) || years > (new Date().getFullYear())) {
+    if (isNaN(years) || years > (new Date().getFullYear())) {
         yearsError.textContent = "Must be in the past.";
         yearsInput.style.borderColor = "red"; 
 
@@ -108,4 +157,8 @@ function saveAgeToLocalStorage(age) {
 function loadAgeFromLocalStorage() {
     const storedAge = localStorage.getItem("calculatedAge");
     return storedAge ? JSON.parse(storedAge) : null;
+}
+
+function clearLocalStorage() {
+    localStorage.removeItem("calculatedAge");
 }
