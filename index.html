@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's My Age!</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
 </head>
 
 <body>
@@ -15,21 +17,29 @@
                 <div class="input_wrapper">
                     <div class="day_wrapper">
                         <p>Day</p>
-                        <input type="number" id="days" min="1" max="31" maxlength="2" required>
+                        <input type="number" id="day" min="1" max="31" maxlength="2" required>
+                        <p id="daysError" class="error"></p>
+
                     </div>
                     <div class="day_wrapper">
                         <p>Month</p>
-                        <input type="number" id="months" min="1" max="12" maxlength="2" required>
+                        <input type="number" id="month" min="1" max="12" maxlength="2" required>
+                        <p id="monthsError" class="error"></p>
+
                     </div>
                     <div class="day_wrapper">
                         <p>Year</p>
-                        <input type="number" id="years" min="1" max="9999" maxlength="4" required>
+                        <input type="number" id="year" min="1" max="9999" maxlength="4" required>
+                        <p id="yearsError" class="error"></p>
+
                     </div>
 
                 </div>
                 <div class="btn_wrapper">
                     <div class="line"></div>
-                    <button type="button" id="submitBtn">
+                    <button type="button" id="submit"
+                        onclick="handleOnSubmit()"
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
                             <g fill="none" stroke="#FFF" stroke-width="2">
                                 <path
@@ -41,7 +51,9 @@
                 </div>
                 <div class="btn_wrapper_mobile">
                     <div class="line"></div>
-                    <button type="button" id="submitBtn">
+                    <button type="button" id="submit"
+                        onclick="handleOnSubmit()"
+                    >
                         <svg xmlns="http://www.w3.org/2000/svg" width="46" height="44" viewBox="0 0 46 44">
                             <g fill="none" stroke="#FFF" stroke-width="2">
                                 <path
@@ -56,13 +68,13 @@
             </form>
             <div class="output">
                 <div class="years_output">
-                    <span class="value">38</span><span>Years</span>
+                    <span class="value" id="ageInYears">--</span><span>Years</span>
                 </div>
                 <div class="years_output">
-                    <span class="value">3</span><span>Months</span>
+                    <span class="value" id="ageInMonths">--</span><span>Months</span>
                 </div>
                 <div class="years_output">
-                    <span class="value">--</span><span>Days</span>
+                    <span class="value" id="ageInDays">--</span><span>Days</span>
                 </div>
             </div>
         </div>
