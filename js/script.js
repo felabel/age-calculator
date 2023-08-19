@@ -3,6 +3,11 @@ const daysInput = document.getElementById("day");
 const monthsInput = document.getElementById("month");
 const yearsInput = document.getElementById("year");
 
+const dayText = document.getElementById("dayText");
+const monthText = document.getElementById("monthText");
+const yearText = document.getElementById("yearText");
+
+
 function handleOnSubmit() {
     const days = daysInput.value.padStart(2, '0');
     const months = monthsInput.value.padStart(2, '0');
@@ -24,30 +29,41 @@ function handleOnSubmit() {
 if (isFieldEmpty(daysInput)) {
     daysError.textContent = "Required field";
     daysInput.style.borderColor = "red";
+    dayText.style.color="red"
+
     return;
 } else if (isNaN(days) || days.length > 2 || days < 1 || days > 31) {
     daysError.textContent = "Must be a valid day.";
     daysInput.style.borderColor = "red"; 
+    dayText.style.color="red"
     return;
 }
 
 if (isFieldEmpty(monthsInput)) {
     monthsError.textContent = "Required field";
     monthsInput.style.borderColor = "red";
+    monthText.style.color = "red";
+    
     return;
 } else if (!months || isNaN(months) || months.length > 2 || months < 1 || months > 12) {
     monthsError.textContent = "Must be a valid month.";
     monthsInput.style.borderColor = "red"; 
+    monthText.style.color = "red";
+
     return;
 }
 
 if (isFieldEmpty(yearsInput)) {
     yearsError.textContent = "Required field";
     yearsInput.style.borderColor = "red";
+    yearText.style.color = "red";
+    
     return;
 } else if (!years || isNaN(years) || years > new Date().getFullYear()) {
     yearsError.textContent = "Must be in the past.";
     yearsInput.style.borderColor = "red"; 
+    yearText.style.color = "red";
+
     return;
 }
 
@@ -55,6 +71,8 @@ if (isFieldEmpty(yearsInput)) {
     const lastDayOfMonth = new Date(years, months, 0).getDate();
     if (days > lastDayOfMonth) {
         daysError.textContent = "Must be a valid day.";
+        dayText.style.color = "red";
+
         return;
     }
 
@@ -81,6 +99,10 @@ if (isFieldEmpty(yearsInput)) {
     daysInput.style.borderColor = "";
     monthsInput.style.borderColor = "";
     yearsInput.style.borderColor = "";
+    dayText.style.color = "";
+    monthText.style.color = "";
+    yearText.style.color = "";
+
 }
 
 // calculate the age from the date provided
@@ -129,12 +151,20 @@ function loadAgeFromLocalStorage() {
     const storedAge = localStorage.getItem("calculatedAge");
     return storedAge ? JSON.parse(storedAge) : null;
 }
+// clear the displayed age in the UI
+function clearAgeDisplay() {
+    const ageYears = document.getElementById("ageInYears");
+    const ageMonths = document.getElementById("ageInMonths");
+    const ageDays = document.getElementById("ageInDays");
 
+    ageYears.textContent = "--";
+    ageMonths.textContent = "--";
+    ageDays.textContent = "--";
+}
 // clear local storage
 function clearLocalStorage() {
     localStorage.removeItem("calculatedAge");
-    // set the displayed data to empty
-    ageYears.textContent = '--';
-    ageMonths.textContent = '--';
-    ageDays.textContent = '--';
+    // clear the displayed age
+    clearAgeDisplay();
+    
 }

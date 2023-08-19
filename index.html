@@ -16,20 +16,20 @@
             <form id="dateForm">
                 <div class="input_wrapper">
                     <div class="day_wrapper">
-                        <p>Day</p>
-                        <input type="number" id="day" min="1" max="31" maxlength="2" required>
+                        <p id="dayText">Day</p>
+                        <input type="number" id="day" min="1" max="31" maxlength="2" required placeholder="DD">
                         <p id="daysError" class="error"></p>
 
                     </div>
                     <div class="day_wrapper">
-                        <p>Month</p>
-                        <input type="number" id="month" min="1" max="12" maxlength="2" required>
+                        <p id="monthText">Month</p>
+                        <input type="number" id="month" min="1" max="12" maxlength="2" required placeholder="MM">
                         <p id="monthsError" class="error"></p>
 
                     </div>
                     <div class="day_wrapper">
-                        <p>Year</p>
-                        <input type="number" id="year" min="1" max="9999" maxlength="4" required>
+                        <p id="yearText">Year</p>
+                        <input type="number" id="year" min="1" max="9999" maxlength="4" required placeholder="YYYY">
                         <p id="yearsError" class="error"></p>
 
                     </div>
@@ -77,7 +77,7 @@
                     <span class="value" id="ageInDays">--</span><span>Days</span>
                 </div>
             </div>
-            <button onclick="clearLocalStorage()">Clear Age</button>
+            <button onclick="clearLocalStorage()" class="clearBtn">Clear Age</button>
         </div>
     </div>
 
